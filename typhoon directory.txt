@@ -1,0 +1,48 @@
+class TyphoonDirectory:
+    def __init__(self):
+        self.directory = {
+            "Agaton": ["March", 95],
+            "Basyang": ["July", 130],
+            "Caloy": ["July", 65],
+            "Domeng": ["August", 65],
+            "Ester": ["July", 95],
+            "Florita": ["August", 55],
+            "Glenda": ["August", 175],
+            "Henry": ["September", 65],
+            "Inday": ["September", 195],
+            "Juan": ["October", 305],
+        }
+
+    def month(self, typhoon_name):
+        print(f"{typhoon_name} Month: {self.directory[typhoon_name][0]}")
+
+    def speed(self, typhoon_name):
+        print(f"{typhoon_name} Speed: {self.directory[typhoon_name][1]}kph")
+        print(" ")
+
+    def add_typhoon(self, typhoon_name, month, speed):
+        self.directory[typhoon_name] = [month, speed]
+        print(f"\nAdded Typhoon: {typhoon_name} | Month: {month} | Speed: {speed}kph")
+    
+    def show_directory(self):
+        print("\nCurrent Typhoon Directory:")
+        for name, details in self.directory.items():
+            print(f"{name}: Month: {details[0]}, Speed: {details[1]}kph")
+
+directory = TyphoonDirectory()
+
+def enter_typhoon():
+    typhoon_name = input("Enter Typhoon Name: ")
+    if typhoon_name.lower() == 'exit':
+        print("exiting the program.")
+        return
+    if typhoon_name in directory.directory:
+        directory.month(typhoon_name)
+        directory.speed(typhoon_name)
+    else:
+        print(f"{typhoon_name} is not in the directory.")
+       
+    enter_typhoon()
+
+enter_typhoon()
+
