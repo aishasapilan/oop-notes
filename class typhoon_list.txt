@@ -1,0 +1,33 @@
+class typhoon_list:
+    def __init__(self):
+        self.list = {
+            "Agaton": ["march", "95kph"],
+            "Basyang": ["july", "130kph"],
+            "Caloy": ["july", "65kph"],
+            "Domeng": ["august", "65kph"],
+            "Ester": ["august", "95kph"],
+            "Florita": ["august", "55kph"],
+            "Glenda": ["august", "175kph"],
+            "Henry": ["september", "65kph"],
+            "Inday": ["september", "195kph"],
+            "Juan": ["october", "305kph"],
+            
+        }
+
+    def month(self, typhoon_name):
+        print(f"{typhoon_name} Month: {self.list[typhoon_name][0]}")
+
+    def speed(self, typhoon_name):
+        print(f"{typhoon_name} Speed: {self.list[typhoon_name][1]}")
+
+List = typhoon_list()
+
+while True:
+    typhoon_name = input("Enter typhoon name:")
+    if typhoon_name.lower() == 'exit':
+        break
+    if typhoon_name in List.list:
+        List.month(typhoon_name)
+        List.speed(typhoon_name)
+    else:
+        print(f"{typhoon_name} is not in the list.")
