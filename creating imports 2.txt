@@ -1,0 +1,100 @@
+Creating Imports
+
+#math squareroot
+import math as m
+def squareroot(x):
+    return m.sqrt(x)
+print(squareroot(9))
+
+
+#to create the text file
+import os
+path = os.getcwd()
+
+filename = "/my_txt"
+with open(path+filename, "a") as file:
+    file.write("Hello, World!")
+
+
+#to create the folder
+import os
+path = os.getcwd()+"/my_folder"
+os.makedirs(path)
+
+filename = "/My_txt"
+with open(path+filename, "a") as file:
+    file.write("Hello, World!")
+
+#to add txt file in th folder
+import os
+path = os.getcwd()+"/my_folder"
+if not os.path.exists(path):
+    os.makedirs(path)
+
+filename = "/my_txt1.txt"
+with open(path+filename, "a") as file:
+    file.write("Hello, World!")
+
+
+#to add in folder to txt file
+import os
+path = os.getcwd()+"/my_folder"
+if not os.path.exists(path):
+    os.makedirs(path)
+
+filename = "/my_txt1.txt"
+with open(path+filename, "a") as file:
+    file.write("Hello, World!")
+
+filename = "/my_poem.txt"
+with open(path+filename, "r") as file:
+    data = file.read()
+    print(data)
+
+
+
+
+#receipt
+import os
+class Shop:
+    def __init__(self,items_bought,money):
+        self.item_for_sale = ["mango", "banana", "apple"]
+        self.price_for_item = [20.00, 60.00, 50.00]
+        self.directory = dict(zip(self.item_for_sale, self.price_for_item))
+        self.items_bought = items_bought
+        self.money = money
+        self.change = 0
+        self.price = 0
+        
+    def item_check(self):
+        for items in self.items_bought:
+            if items in self.item_for_sale:
+                self.price += self.directory[items]
+     
+    def money_check(self):
+        self.item_check()
+        self.change = self.money - self.price
+        
+    def receipt(self):
+        self.money_check()
+        path = os.getcwd()
+        filename = "/receipt.txt"
+        with open(path+filename, "a") as r:
+            r.write("\nreceipt\n")
+            r.write(f"money: {self.money}\n")
+            r.write(f"items bought: {self.items_bought}\n")
+            r.write(f"price: {self.price}\n")
+            r.write(f"change: {self.change}\n")
+            
+items = ["mango", "banana"]
+money = 120.00
+shop = Shop(items, money)
+shop.receipt()
+      
+import shop as s
+items = ["banana", "apple"]
+money = 700.00
+vendor = s.Shop(items,money)
+vendor.receipt()
+     
+       
