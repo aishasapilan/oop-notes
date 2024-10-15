@@ -1,0 +1,89 @@
+#main.py
+import other as O
+
+if __name__=="__main__":
+    O.print_sum(1,2)
+
+
+#other.py
+def print_sum(num1,num2):
+    print(num1 + num2)
+    
+#if __name__=="__main__":
+print_sum(1,2)
+
+#GUI
+import sys
+from PyQt5.QtWidgets import QApplication, QMainWindow
+
+class Main_Window(QMainWindow):
+    def __init__(self):
+        super(). __init__()
+        self.setWindowTitle("My App")
+        self.setFixedSize(400,300)
+        
+if __name__=="__main__":
+    app = QApplication(sys.argv)
+    main = Main_Window()
+    main.show()
+    app.exec()
+
+#WITH BUTTON
+import sys
+from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QPushButton
+
+class Main_Window(QMainWindow):
+    def __init__(self):
+        super(). __init__()
+        self.setWindowTitle("My App")
+        self.setGeometry(100,60,1000,800)
+        self.Label1 = QLabel()
+        self.Label1.setText("Hello World")
+        self.setCentralWidget(self.Label1)
+        self.Button = QPushButton("Press Me", self)
+        self.Button.setFixedSize(100,20)
+        self.Button.clicked.connect(self.ButtonMethod)
+        
+    def ButtonMethod(self):
+        self.Label1.setText("HI!")
+        
+if __name__=="__main__":
+    app = QApplication(sys.argv)
+    main = Main_Window()
+    main.show()
+    app.exec()
+
+#USING LAYOUT
+import sys
+from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QPushButton, QVBoxLayout, QWidget
+
+class Main_Window(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("My App")
+        self.setFixedSize(400, 300)
+
+        
+        central_widget = QWidget()
+        self.setCentralWidget(central_widget)
+        layout = QVBoxLayout(central_widget)
+
+        
+        self.Label1 = QLabel("Hello World")
+        self.Button = QPushButton("Press Me")
+
+       
+        layout.addWidget(self.Label1)
+        layout.addWidget(self.Button)
+
+        
+        self.Button.clicked.connect(self.ButtonMethod)
+
+    def ButtonMethod(self):
+        self.Label1.setText("HI!")
+
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    main = Main_Window()
+    main.show()
+    app.exec()
