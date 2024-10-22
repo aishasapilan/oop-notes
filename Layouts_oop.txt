@@ -1,0 +1,177 @@
+Layouts:
+Horizontal Layout
+Vertical Layout
+Form Layout
+Grid Layout
+
+#Horizontal Layout
+import sys
+from PyQt5.QtWidgets import *
+class MainWindow (QMainWindow):
+    def __init__(self):
+        super(MainWindow, self).__init__()
+        MainWidget = QWidget()
+        HLayout = QHBoxLayout()
+        MainWidget.setLayout(HLayout)
+        self.setCentralWidget(MainWidget)
+        
+        self.textLabel1 = QLabel("Hello")
+        self.pushButton = QPushButton()
+        self.pushButton.setText("Click me!")
+        HLayout.addWidget(self.textLabel1)
+        HLayout.addWidget(self.pushButton)
+        
+        
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    main = MainWindow()
+    main.show()
+    app.exec()
+
+
+#Vertical Layout
+import sys
+from PyQt5.QtWidgets import *
+class MainWindow (QMainWindow):
+    def __init__(self):
+        super(MainWindow, self).__init__()
+        MainWidget = QWidget()
+        VLayout = QVBoxLayout()
+        MainWidget.setLayout(VLayout)
+        self.setCentralWidget(MainWidget)
+        
+        self.textLabel1 = QLabel("Hello")
+        self.pushButton = QPushButton()
+        self.pushButton.setText("Click me!")
+        VLayout.addWidget(self.textLabel1)
+        VLayout.addWidget(self.pushButton)
+        
+        
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    main = MainWindow()
+    main.show()
+    app.exec()
+
+
+#Form Layout
+import sys
+from PyQt5.QtWidgets import *
+class MainWindow (QMainWindow):
+    def __init__(self):
+        super(MainWindow, self).__init__()
+        MainWidget = QWidget()
+        Layout = QFormLayout()
+        MainWidget.setLayout(Layout)
+        self.setCentralWidget(MainWidget)
+        
+        self.textLabel1 = QLabel("Hello")
+        self.pushButton = QPushButton()
+        self.pushButton.setText("Click me!")
+        Layout.addRow(self.textLabel1, self.pushButton)
+        
+        
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    main = MainWindow()
+    main.show()
+    app.exec()
+
+
+#with button
+import sys
+from PyQt5.QtWidgets import *
+class MainWindow (QMainWindow):
+    def __init__(self):
+        super(MainWindow, self).__init__()
+        MainWidget = QWidget()
+        Layout = QFormLayout()
+        MainWidget.setLayout(Layout)
+        self.setCentralWidget(MainWidget)
+        
+        r1 = QRadioButton("Male")
+        r2 = QRadioButton("Female")
+        HBox = QHBoxLayout()
+        HBox.addWidget(r1)
+        HBox.addWidget(r2)
+        Layout.addRow(QLabel("Gender: "), HBox)
+        Layout.addRow(QPushButton("submit"), QPushButton("Cancel"))
+        
+        
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    main = MainWindow()
+    main.show()
+    app.exec()
+
+#log in
+import sys
+from PyQt5.QtWidgets import *
+class MainWindow (QMainWindow):
+    def __init__(self):
+        super(MainWindow, self).__init__()
+        self.resize(300,100)
+        MainWidget = QWidget()
+        Layout = QFormLayout()
+        MainWidget.setLayout(Layout)
+        self.setCentralWidget(MainWidget)
+        
+        self.userLineEdit = QLineEdit()
+        self.passLineEdit = QLineEdit()
+        self.passLineEdit.setEchoMode(QLineEdit.Password)
+        self.submitButton = QPushButton("submit")
+        self.cancelButton = QPushButton("cancel")
+        
+        Layout.addRow(QLabel("Username: "), self.userLineEdit)
+        Layout.addRow(QLabel("Password: "), self.passLineEdit)
+        Layout.addRow(self.submitButton, self.cancelButton)
+        
+        
+        
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    main = MainWindow()
+    main.show()
+    app.exec()
+
+
+#quiz project
+import sys
+from PyQt5.QtWidgets import *
+
+class MainWindow(QMainWindow):
+    def __init__(self):
+        super(MainWindow, self).__init__()
+        self.resize(300, 100)
+        MainWidget = QWidget()
+        Layout = QFormLayout()
+        MainWidget.setLayout(Layout)
+        self.setCentralWidget(MainWidget)
+
+        self.userLineEdit = QLineEdit()
+        self.passLineEdit = QLineEdit()
+        self.passLineEdit.setEchoMode(QLineEdit.Password)  # Hide password input
+        self.submitButton = QPushButton("submit")
+        self.cancelButton = QPushButton("cancel")
+
+        Layout.addRow(QLabel("Username: "), self.userLineEdit)
+        Layout.addRow(QLabel("Password: "), self.passLineEdit)
+        Layout.addRow(self.submitButton, self.cancelButton)
+
+        self.submitButton.clicked.connect(self.submit)
+        self.cancelButton.clicked.connect(self.cancel)
+
+    def submit(self):
+        username = self.userLineEdit.text()
+        password = self.passLineEdit.text()
+        print(f"Username: {username}, Password: {password}")
+
+    def cancel(self):
+        self.userLineEdit.clear()
+        self.passLineEdit.clear()
+
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    main = MainWindow()
+    main.show()
+    app.exec()
