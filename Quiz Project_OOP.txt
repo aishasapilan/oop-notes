@@ -94,6 +94,10 @@ if __name__ == "__main__":
     app.exec()
 
 
+
+
+
+
 #perpek
 import sys
 from PyQt5.QtWidgets import *
