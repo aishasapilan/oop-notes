@@ -1,0 +1,94 @@
+#Console only
+import sys
+from PyQt5.QtWidgets import *
+
+class MainWindow(QMainWindow):
+    def __init__(self):
+        super(MainWindow, self).__init__()
+        self.resize(300, 100)
+        MainWidget = QWidget()
+        Layout = QFormLayout()
+        MainWidget.setLayout(Layout)
+        self.setCentralWidget(MainWidget)
+        self.userLineEdit = QLineEdit()
+        self.passLineEdit = QLineEdit()
+        self.passLineEdit.setEchoMode(QLineEdit.Password)  
+        self.submitButton = QPushButton("submit")
+        self.cancelButton = QPushButton("cancel")
+        Layout.addRow(QLabel("Username: "), self.userLineEdit)
+        Layout.addRow(QLabel("Password: "), self.passLineEdit)
+        Layout.addRow(self.submitButton, self.cancelButton)
+        self.submitButton.clicked.connect(self.submit)
+        self.cancelButton.clicked.connect(self.cancel)
+
+    def submit(self):
+        username = self.userLineEdit.text()
+        password = self.passLineEdit.text()
+        if username == "sitti.alpad" and password == "122404":
+            print("Access Granted")
+        else:
+            print("Log in Failed")
+
+    def cancel(self):
+        self.userLineEdit.clear()
+        self.passLineEdit.clear()
+
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    main = MainWindow()
+    main.show()
+    app.exec()
+
+
+
+
+
+
+#GUI output
+import sys
+from PyQt5.QtWidgets import *
+
+class MainWindow(QMainWindow):
+    def __init__(self):
+        super(MainWindow, self).__init__()
+        self.resize(300, 100)
+        MainWidget = QWidget()
+        Layout = QFormLayout()
+        MainWidget.setLayout(Layout)
+        self.setCentralWidget(MainWidget)
+        self.userLineEdit = QLineEdit()
+        self.passLineEdit = QLineEdit()
+        self.passLineEdit.setEchoMode(QLineEdit.Password)
+        self.submitButton = QPushButton("submit")
+        self.cancelButton = QPushButton("cancel")
+        Layout.addRow(QLabel("Username: "), self.userLineEdit)
+        Layout.addRow(QLabel("Password: "), self.passLineEdit)
+        Layout.addRow(self.submitButton, self.cancelButton)
+        self.submitButton.clicked.connect(self.submit)
+        self.cancelButton.clicked.connect(self.cancel)
+
+    def submit(self):
+        username = self.userLineEdit.text()
+        password = self.passLineEdit.text()
+        if username == "sitti.alpad" and password == "122404":
+            self.submitButton.setText("Access Granted")
+            self.cancelButton.setText("Back")
+            self.userLineEdit.setEnabled(False)
+            self.passLineEdit.setEnabled(False)
+            QMessageBox.information(self, "Access", "Access Granted")
+        else:
+            QMessageBox.warning(self, "Access", "Log in Failed")
+
+    def cancel(self):
+        self.userLineEdit.clear()
+        self.passLineEdit.clear()
+        self.submitButton.setText("submit")
+        self.cancelButton.show()
+        self.userLineEdit.setEnabled(True)
+        self.passLineEdit.setEnabled(True)
+
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    main = MainWindow()
+    main.show()
+    app.exec()
