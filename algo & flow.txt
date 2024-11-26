@@ -1,0 +1,24 @@
+Algorithm and Flowchart
+
+Algorithm in programming
+1. Problem Definiton - what is to be done?
+2. Data Collection - what do we do to solve the problem?
+3. Data Processing - understanding what we have or transforming them into a usable form
+4. Logical Approach - employing the collected and created data against logic to solve
+5. Solution - present the solution in the way you want in a GUI or terminal
+
+ALGORITHMS:
+1. Bruteforce Algorithm
+2. Divide and Conquer
+3. Greedy Algorithm
+4. Dynamic Programming
+
+Characteristic of Good Algorithm:
+1.Precise
+2.Unique
+3.Finite
+4.Generality
+
+2 Forms of Algorithm:
+1. Pseudocode
+2. Flowchart
